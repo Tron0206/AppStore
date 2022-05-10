@@ -13,6 +13,8 @@
 		8F6D0879282A6EA600A7956C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D0877282A6EA600A7956C /* Main.storyboard */; };
 		8F6D087B282A6EA700A7956C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D087A282A6EA700A7956C /* Assets.xcassets */; };
 		8F6D087E282A6EA700A7956C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D087C282A6EA700A7956C /* LaunchScreen.storyboard */; };
+		8F6D0886282A6FC300A7956C /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0885282A6FC300A7956C /* BaseTabBarController.swift */; };
+		8F6D0888282A7EA600A7956C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8F6D0887282A7EA600A7956C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8F6D087A282A6EA700A7956C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F6D087D282A6EA700A7956C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F6D087F282A6EA700A7956C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F6D0885282A6FC300A7956C /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		8F6D0887282A7EA600A7956C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		8F6D0865282A6EA600A7956C = {
 			isa = PBXGroup;
 			children = (
+				8F6D0887282A7EA600A7956C /* .gitignore */,
 				8F6D0870282A6EA600A7956C /* Appstore */,
 				8F6D086F282A6EA600A7956C /* Products */,
 			);
@@ -63,6 +68,7 @@
 				8F6D087A282A6EA700A7956C /* Assets.xcassets */,
 				8F6D087C282A6EA700A7956C /* LaunchScreen.storyboard */,
 				8F6D087F282A6EA700A7956C /* Info.plist */,
+				8F6D0885282A6FC300A7956C /* BaseTabBarController.swift */,
 			);
 			path = Appstore;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6D0888282A7EA600A7956C /* .gitignore in Resources */,
 				8F6D087E282A6EA700A7956C /* LaunchScreen.storyboard in Resources */,
 				8F6D087B282A6EA700A7956C /* Assets.xcassets in Resources */,
 				8F6D0879282A6EA600A7956C /* Main.storyboard in Resources */,
@@ -138,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6D0886282A6FC300A7956C /* BaseTabBarController.swift in Sources */,
 				8F6D0876282A6EA600A7956C /* ViewController.swift in Sources */,
 				8F6D0872282A6EA600A7956C /* AppDelegate.swift in Sources */,
 				8F6D0874282A6EA600A7956C /* SceneDelegate.swift in Sources */,
