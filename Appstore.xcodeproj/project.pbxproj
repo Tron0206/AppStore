@@ -21,9 +21,12 @@
 		8F6D0893282ACBCB00A7956C /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0892282ACBCB00A7956C /* VerticalStackView.swift */; };
 		8F6D0896282AD9B300A7956C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0895282AD9B300A7956C /* SearchResult.swift */; };
 		8F6D0899282BB84800A7956C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0898282BB84800A7956C /* Service.swift */; };
+		CEC749CBF051F0E5600D37F8 /* Pods_Appstore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Appstore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B45A977790D0BF03E48D00 /* Pods-Appstore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.release.xcconfig"; path = "Target Support Files/Pods-Appstore/Pods-Appstore.release.xcconfig"; sourceTree = "<group>"; };
 		8F6D086E282A6EA600A7956C /* Appstore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appstore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6D0871282A6EA600A7956C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6D0873282A6EA600A7956C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		8F6D0892282ACBCB00A7956C /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		8F6D0895282AD9B300A7956C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		8F6D0898282BB84800A7956C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		D831B9C070CEBC9CEFAE6CF5 /* Pods-Appstore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.debug.xcconfig"; path = "Target Support Files/Pods-Appstore/Pods-Appstore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,18 +51,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC749CBF051F0E5600D37F8 /* Pods_Appstore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61D49D181B521B0C6586CF3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D831B9C070CEBC9CEFAE6CF5 /* Pods-Appstore.debug.xcconfig */,
+				70B45A977790D0BF03E48D00 /* Pods-Appstore.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7804BAD282EB54822FC4548C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8F6D0865282A6EA600A7956C = {
 			isa = PBXGroup;
 			children = (
 				8F6D0887282A7EA600A7956C /* .gitignore */,
 				8F6D0870282A6EA600A7956C /* Appstore */,
 				8F6D086F282A6EA600A7956C /* Products */,
+				61D49D181B521B0C6586CF3B /* Pods */,
+				7804BAD282EB54822FC4548C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F6D0882282A6EA700A7956C /* Build configuration list for PBXNativeTarget "Appstore" */;
 			buildPhases = (
+				737DD061D27D026F7E24A148 /* [CP] Check Pods Manifest.lock */,
 				8F6D086A282A6EA600A7956C /* Sources */,
 				8F6D086B282A6EA600A7956C /* Frameworks */,
 				8F6D086C282A6EA600A7956C /* Resources */,
+				AF2C05394D58903A2BEC421C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +224,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		737DD061D27D026F7E24A148 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Appstore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF2C05394D58903A2BEC421C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Appstore/Pods-Appstore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Appstore/Pods-Appstore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Appstore/Pods-Appstore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8F6D086A282A6EA600A7956C /* Sources */ = {
@@ -356,6 +425,7 @@
 		};
 		8F6D0883282A6EA700A7956C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D831B9C070CEBC9CEFAE6CF5 /* Pods-Appstore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -369,6 +439,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,6 +455,7 @@
 		};
 		8F6D0884282A6EA700A7956C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70B45A977790D0BF03E48D00 /* Pods-Appstore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -397,6 +469,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
