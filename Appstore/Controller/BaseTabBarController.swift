@@ -40,7 +40,7 @@ class BaseTabBarController: UITabBarController {
         navController.navigationBar.prefersLargeTitles = true
         navController.tabBarItem.title = title
         navController.tabBarItem.image = UIImage(named: imageName)
-        configureNavController(navController)
+//        configureNavController(navController)
         return navController
     }
 
