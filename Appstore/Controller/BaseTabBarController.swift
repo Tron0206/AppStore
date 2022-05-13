@@ -13,7 +13,6 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundColor = .systemGroupedBackground
         
         viewControllers = [
             createNavController(viewController: AppsSearchController(), title: "Search", imageName: "search"),
