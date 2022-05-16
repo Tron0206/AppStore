@@ -1,43 +1,38 @@
 //
-//  AppsHorizontalController.swift
+//  AppsHeaderHorizontalController.swift
 //  Appstore
 //
-//  Created by Zhasur Sidamatov on 13/05/2022.
+//  Created by Zhasur Sidamatov on 16/05/2022.
 //
 
 import UIKit
-import Foundation
 
 
-class AppsHorizontalController: BaseListController {
-    
-    private let itemsPerColumn: CGFloat = 3
-    private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+class AppsHeaderHorizontalController: BaseListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
     }
     
     private func setupView() {
-        collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
+        
+        collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: AppsHeaderCell.identifier)
+        
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCell.identifier, for: indexPath)
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
     }
     
 }
@@ -45,12 +40,9 @@ class AppsHorizontalController: BaseListController {
 
 //MARK: - Extensions
 
-extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
+extension AppsHeaderHorizontalController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingHeight = sectionInsets.top * (itemsPerColumn + 1)
-        let availableHeight = collectionView.frame.height - paddingHeight
-        let height = availableHeight / itemsPerColumn
-        return .init(width: view.frame.width - 48, height: height)
+        return .init(width: view.frame.width - 48, height: view.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

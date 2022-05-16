@@ -23,9 +23,7 @@ class AppsGroupCell: UICollectionViewCell {
         addSubview(titleLabel)
         titleLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0))
         addSubview(horizontalController.view)
-        horizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
-        horizontalController.view.backgroundColor = .blue
-        
+        horizontalController.view.anchor(top: titleLabel.bottomAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)        
         
     }
     
