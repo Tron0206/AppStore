@@ -21,6 +21,12 @@
 		8F6D0893282ACBCB00A7956C /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0892282ACBCB00A7956C /* VerticalStackView.swift */; };
 		8F6D0896282AD9B300A7956C /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0895282AD9B300A7956C /* SearchResult.swift */; };
 		8F6D0899282BB84800A7956C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0898282BB84800A7956C /* Service.swift */; };
+		8F6D089C282E593B00A7956C /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D089B282E593B00A7956C /* AppsPageController.swift */; };
+		8F6D089E282E5A7E00A7956C /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D089D282E5A7E00A7956C /* BaseListController.swift */; };
+		8F6D08A2282E5F2300A7956C /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A1282E5F2300A7956C /* AppsGroupCell.swift */; };
+		8F6D08A5282E6AE600A7956C /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A4282E6AE600A7956C /* AppsHorizontalController.swift */; };
+		8F6D08A7282F019000A7956C /* AppsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A6282F019000A7956C /* AppsRowCell.swift */; };
+		8F6D08A9282F03C200A7956C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A8282F03C200A7956C /* Extensions.swift */; };
 		CEC749CBF051F0E5600D37F8 /* Pods_Appstore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +49,12 @@
 		8F6D0892282ACBCB00A7956C /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		8F6D0895282AD9B300A7956C /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		8F6D0898282BB84800A7956C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		8F6D089B282E593B00A7956C /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
+		8F6D089D282E5A7E00A7956C /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		8F6D08A1282E5F2300A7956C /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
+		8F6D08A4282E6AE600A7956C /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
+		8F6D08A6282F019000A7956C /* AppsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsRowCell.swift; sourceTree = "<group>"; };
+		8F6D08A8282F03C200A7956C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D831B9C070CEBC9CEFAE6CF5 /* Pods-Appstore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.debug.xcconfig"; path = "Target Support Files/Pods-Appstore/Pods-Appstore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,8 +128,10 @@
 		8F6D0889282A85F400A7956C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8F6D089F282E5B5C00A7956C /* Search */,
+				8F6D089A282E592700A7956C /* Apps */,
 				8F6D0885282A6FC300A7956C /* BaseTabBarController.swift */,
-				8F6D088A282A864400A7956C /* AppsSearchController.swift */,
+				8F6D089D282E5A7E00A7956C /* BaseListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,7 +139,8 @@
 		8F6D088C282AB20800A7956C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8F6D088D282AB22C00A7956C /* SearchResultCell.swift */,
+				8F6D08A3282E653900A7956C /* Search */,
+				8F6D08A0282E5EE400A7956C /* Apps */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +150,7 @@
 			children = (
 				8F6D0890282ABB5700A7956C /* UIView+Layout.swift */,
 				8F6D0892282ACBCB00A7956C /* VerticalStackView.swift */,
+				8F6D08A8282F03C200A7956C /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -153,6 +169,40 @@
 				8F6D0898282BB84800A7956C /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8F6D089A282E592700A7956C /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				8F6D089B282E593B00A7956C /* AppsPageController.swift */,
+				8F6D08A4282E6AE600A7956C /* AppsHorizontalController.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		8F6D089F282E5B5C00A7956C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8F6D088A282A864400A7956C /* AppsSearchController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		8F6D08A0282E5EE400A7956C /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				8F6D08A1282E5F2300A7956C /* AppsGroupCell.swift */,
+				8F6D08A6282F019000A7956C /* AppsRowCell.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		8F6D08A3282E653900A7956C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8F6D088D282AB22C00A7956C /* SearchResultCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,15 +322,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F6D0891282ABB5700A7956C /* UIView+Layout.swift in Sources */,
+				8F6D089C282E593B00A7956C /* AppsPageController.swift in Sources */,
+				8F6D08A7282F019000A7956C /* AppsRowCell.swift in Sources */,
 				8F6D0896282AD9B300A7956C /* SearchResult.swift in Sources */,
 				8F6D0886282A6FC300A7956C /* BaseTabBarController.swift in Sources */,
 				8F6D0876282A6EA600A7956C /* ViewController.swift in Sources */,
 				8F6D0872282A6EA600A7956C /* AppDelegate.swift in Sources */,
+				8F6D08A2282E5F2300A7956C /* AppsGroupCell.swift in Sources */,
 				8F6D088B282A864400A7956C /* AppsSearchController.swift in Sources */,
 				8F6D0893282ACBCB00A7956C /* VerticalStackView.swift in Sources */,
 				8F6D0899282BB84800A7956C /* Service.swift in Sources */,
+				8F6D08A9282F03C200A7956C /* Extensions.swift in Sources */,
 				8F6D088E282AB22C00A7956C /* SearchResultCell.swift in Sources */,
+				8F6D089E282E5A7E00A7956C /* BaseListController.swift in Sources */,
 				8F6D0874282A6EA600A7956C /* SceneDelegate.swift in Sources */,
+				8F6D08A5282E6AE600A7956C /* AppsHorizontalController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +491,6 @@
 				INFOPLIST_FILE = Appstore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -465,7 +520,6 @@
 				INFOPLIST_FILE = Appstore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
