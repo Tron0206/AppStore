@@ -13,6 +13,7 @@ class AppsHorizontalController: BaseListController {
     
     private let itemsPerColumn: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    var appGroup: AppGroup?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,20 @@ class AppsHorizontalController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return appGroup?.feed.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath) as! AppsRowCell
+        let app = appGroup?.feed.results[indexPath.item]
+        cell.nameLabel.text = app?.name
+        cell.companyLabel.text = app?.artistName
+        if let imageUrl = app?.artworkUrl100 {
+            cell.imageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
+        } else {
+            cell.imageView.image = nil
+        }
+        
         return cell
     }
     

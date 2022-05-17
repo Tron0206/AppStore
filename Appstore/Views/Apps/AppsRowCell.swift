@@ -13,12 +13,13 @@ class AppsRowCell: UICollectionViewCell {
     static let identifier = "AppsRowCell"
     
     let imageView: UIImageView = {
-        let iv = UIImageView(cornerRadius: 8)
+        let iv = UIImageView(cornerRadius: 16)
         iv.backgroundColor = .purple
         iv.constrainWidth(constant: 64)
         iv.constrainHeight(constant: 64)
         return iv
     }()
+    
     let nameLabel = UILabel(text: "App name", font: .systemFont(ofSize: 20))
     let companyLabel = UILabel(text: "Company name", font: .systemFont(ofSize: 13))
     let getButton: UIButton = {
