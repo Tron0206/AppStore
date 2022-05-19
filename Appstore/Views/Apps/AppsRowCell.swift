@@ -12,6 +12,14 @@ class AppsRowCell: UICollectionViewCell {
     
     static let identifier = "AppsRowCell"
     
+    var app: FeedResult! {
+        didSet {
+            nameLabel.text = app.name
+            companyLabel.text = app.artistName
+            imageView.sd_setImage(with: URL(string: app.artworkUrl100), completed: nil)
+        }
+    }
+    
     let imageView: UIImageView = {
         let iv = UIImageView(cornerRadius: 16)
         iv.backgroundColor = .purple

@@ -34,14 +34,7 @@ class AppsHorizontalController: BaseListController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier, for: indexPath) as! AppsRowCell
-        let app = appGroup?.feed.results[indexPath.item]
-        cell.nameLabel.text = app?.name
-        cell.companyLabel.text = app?.artistName
-        if let imageUrl = app?.artworkUrl100 {
-            cell.imageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
-        } else {
-            cell.imageView.image = nil
-        }
+        cell.app = appGroup?.feed.results[indexPath.item]
         
         return cell
     }

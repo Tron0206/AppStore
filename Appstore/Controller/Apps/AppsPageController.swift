@@ -11,7 +11,16 @@ import UIKit
 
 class AppsPageController: BaseListController {
     
-    var editorsChoiceGames: AppGroup?
+    var groups: [AppGroup] = []
+    var socialApps: [SocialApp] = []
+    
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .large)
+        aiv.color = .black
+        aiv.startAnimating()
+        aiv.hidesWhenStopped = true
+        return aiv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,41 +32,65 @@ class AppsPageController: BaseListController {
     }
     
     fileprivate func fetchData() {
-        Service.shared.fetchGames { appGroup, error in
-            if let error = error {
-                print("Failed to fetch games: \(error)")
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        Service.shared.fetchWithUrl(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/25/apps.json") { appGroup, error in
+            dispatchGroup.leave()
+            guard let appGroup = appGroup else {
                 return
             }
-            
-            self.editorsChoiceGames = appGroup
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-            
+            self.groups.append(appGroup)
         }
+        
+        dispatchGroup.enter()
+        Service.shared.fetchWithUrl(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/25/apps.json") { appGroup, error in
+            dispatchGroup.leave()
+            guard let appGroup = appGroup else {
+                return
+            }
+            self.groups.append(appGroup)
+        }
+        dispatchGroup.enter()
+        Service.shared.fetchSocialApps { socialApps, error in
+            dispatchGroup.leave()
+            self.socialApps = socialApps ?? []
+        }
+        
+        //Completion
+        dispatchGroup.notify(queue: .main) {
+            self.activityIndicatorView.stopAnimating()
+            self.collectionView.reloadData()
+        }
+        
     }
     
     private func setupView() {
         collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: AppsGroupCell.identifier)
         
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AppsPageHeader.identifier)
+        
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.fillSuperview()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return groups.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsGroupCell.identifier, for: indexPath) as! AppsGroupCell
-        cell.titleLabel.text = editorsChoiceGames?.feed.title
-        cell.horizontalController.appGroup = editorsChoiceGames
+        let appGroup = groups[indexPath.item]
+        cell.titleLabel.text = appGroup.feed.title
+        cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsPageHeader.identifier, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AppsPageHeader.identifier, for: indexPath) as! AppsPageHeader
+        header.appHeaderHorizontalController.socialApps = self.socialApps
+        header.appHeaderHorizontalController.collectionView.reloadData()
         return header
     }
     

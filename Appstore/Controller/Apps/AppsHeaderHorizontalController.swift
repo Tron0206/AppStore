@@ -10,6 +10,8 @@ import UIKit
 
 class AppsHeaderHorizontalController: BaseListController {
     
+    var socialApps: [SocialApp] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,11 +29,12 @@ class AppsHeaderHorizontalController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        return socialApps.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCell.identifier, for: indexPath) as! AppsHeaderCell
+        cell.app = socialApps[indexPath.item]
         return cell
     }
     

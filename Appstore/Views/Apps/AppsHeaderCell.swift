@@ -12,6 +12,14 @@ class AppsHeaderCell: UICollectionViewCell {
     
     static let identifier = "AppsHeaderCell"
     
+    var app: SocialApp! {
+        didSet {
+            companyLabel.text = app.name
+            titleLabel.text = app.tagline
+            imageView.sd_setImage(with: URL(string: app.imageUrl), completed: nil)
+        }
+    }
+    
     let companyLabel: UILabel = {
         let label = UILabel(text: "Facebook", font: .boldSystemFont(ofSize: 12))
         label.textColor = .blue
@@ -26,7 +34,6 @@ class AppsHeaderCell: UICollectionViewCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView(cornerRadius: 8)
-        iv.backgroundColor = .red
         return iv
     }()
     
