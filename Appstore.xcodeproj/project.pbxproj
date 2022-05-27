@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0B6F282836D14400CEDF0B /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B6F272836D14400CEDF0B /* HorizontalSnappingController.swift */; };
 		8F6D0872282A6EA600A7956C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0871282A6EA600A7956C /* AppDelegate.swift */; };
 		8F6D0874282A6EA600A7956C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0873282A6EA600A7956C /* SceneDelegate.swift */; };
 		8F6D0876282A6EA600A7956C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D0875282A6EA600A7956C /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		8F6D08A5282E6AE600A7956C /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A4282E6AE600A7956C /* AppsHorizontalController.swift */; };
 		8F6D08A7282F019000A7956C /* AppsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A6282F019000A7956C /* AppsRowCell.swift */; };
 		8F6D08A9282F03C200A7956C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D08A8282F03C200A7956C /* Extensions.swift */; };
+		8F7321112840E6D9006A26BF /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7321102840E6D9006A26BF /* AppDetailController.swift */; };
 		8F8C610B2832CD2D00A19B54 /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C610A2832CD2D00A19B54 /* AppsPageHeader.swift */; };
 		8F8C610D2832CF3200A19B54 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C610C2832CF3200A19B54 /* AppsHeaderHorizontalController.swift */; };
 		8F8C610F2832D27000A19B54 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8C610E2832D27000A19B54 /* AppsHeaderCell.swift */; };
@@ -38,6 +40,7 @@
 /* Begin PBXFileReference section */
 		30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Appstore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B45A977790D0BF03E48D00 /* Pods-Appstore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.release.xcconfig"; path = "Target Support Files/Pods-Appstore/Pods-Appstore.release.xcconfig"; sourceTree = "<group>"; };
+		8F0B6F272836D14400CEDF0B /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		8F6D086E282A6EA600A7956C /* Appstore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appstore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6D0871282A6EA600A7956C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F6D0873282A6EA600A7956C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		8F6D08A4282E6AE600A7956C /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		8F6D08A6282F019000A7956C /* AppsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsRowCell.swift; sourceTree = "<group>"; };
 		8F6D08A8282F03C200A7956C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8F7321102840E6D9006A26BF /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 		8F8C610A2832CD2D00A19B54 /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
 		8F8C610C2832CF3200A19B54 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		8F8C610E2832D27000A19B54 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				8F6D0890282ABB5700A7956C /* UIView+Layout.swift */,
 				8F6D0892282ACBCB00A7956C /* VerticalStackView.swift */,
 				8F6D08A8282F03C200A7956C /* Extensions.swift */,
+				8F0B6F272836D14400CEDF0B /* HorizontalSnappingController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 		8F6D089A282E592700A7956C /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				8F73210F2840E6C8006A26BF /* Details */,
 				8F6D089B282E593B00A7956C /* AppsPageController.swift */,
 				8F6D08A4282E6AE600A7956C /* AppsHorizontalController.swift */,
 				8F8C610C2832CF3200A19B54 /* AppsHeaderHorizontalController.swift */,
@@ -218,6 +224,14 @@
 				8F6D088D282AB22C00A7956C /* SearchResultCell.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		8F73210F2840E6C8006A26BF /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				8F7321102840E6D9006A26BF /* AppDetailController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,11 +354,13 @@
 				8F8C611328340BE700A19B54 /* SocialApp.swift in Sources */,
 				8F6D089C282E593B00A7956C /* AppsPageController.swift in Sources */,
 				8F6D08A7282F019000A7956C /* AppsRowCell.swift in Sources */,
+				8F7321112840E6D9006A26BF /* AppDetailController.swift in Sources */,
 				8F6D0896282AD9B300A7956C /* SearchResult.swift in Sources */,
 				8F6D0886282A6FC300A7956C /* BaseTabBarController.swift in Sources */,
 				8F6D0876282A6EA600A7956C /* ViewController.swift in Sources */,
 				8F6D0872282A6EA600A7956C /* AppDelegate.swift in Sources */,
 				8F6D08A2282E5F2300A7956C /* AppsGroupCell.swift in Sources */,
+				8F0B6F282836D14400CEDF0B /* HorizontalSnappingController.swift in Sources */,
 				8F6D088B282A864400A7956C /* AppsSearchController.swift in Sources */,
 				8F6D0893282ACBCB00A7956C /* VerticalStackView.swift in Sources */,
 				8F8C610D2832CF3200A19B54 /* AppsHeaderHorizontalController.swift in Sources */,
@@ -504,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AWNG6A5UPC;
@@ -514,14 +531,15 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Appstore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Appstorewwegwer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AWNG6A5UPC;
@@ -544,14 +563,15 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Appstore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Appstorewwegwer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

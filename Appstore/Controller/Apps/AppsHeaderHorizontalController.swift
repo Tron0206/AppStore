@@ -8,7 +8,7 @@
 import UIKit
 
 
-class AppsHeaderHorizontalController: BaseListController {
+class AppsHeaderHorizontalController: HorizontalSnappingController {
     
     var socialApps: [SocialApp] = []
     

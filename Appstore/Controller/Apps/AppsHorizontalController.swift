@@ -9,11 +9,13 @@ import UIKit
 import Foundation
 
 
-class AppsHorizontalController: BaseListController {
+class AppsHorizontalController: HorizontalSnappingController {
     
     private let itemsPerColumn: CGFloat = 3
     private let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     var appGroup: AppGroup?
+    
+    var didSelectHandler: ((FeedResult) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +25,6 @@ class AppsHorizontalController: BaseListController {
     private func setupView() {
         collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,6 +40,12 @@ class AppsHorizontalController: BaseListController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let app = appGroup?.feed.results[indexPath.item] {
+            didSelectHandler?(app)
+        }
     }
     
 }
