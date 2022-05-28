@@ -29,7 +29,9 @@ class AppsRowCell: UICollectionViewCell {
     }()
     
     let nameLabel = UILabel(text: "App name", font: .systemFont(ofSize: 20))
+    
     let companyLabel = UILabel(text: "Company name", font: .systemFont(ofSize: 13))
+    
     let getButton: UIButton = {
         let button = UIButton(title: "GET")
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
