@@ -25,6 +25,7 @@ class AppsHorizontalController: HorizontalSnappingController {
     private func setupView() {
         collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,9 +60,5 @@ extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
         let availableHeight = collectionView.frame.height - paddingHeight
         let height = availableHeight / itemsPerColumn
         return .init(width: view.frame.width - 48, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 16, bottom: 0, right: 16)
     }
 }

@@ -44,5 +44,5 @@ class SnappingLayout: UICollectionViewFlowLayout {
                 }
             })
 
-            return CGPoint(x: proposedContentOffset.x + offsetAdjustment - 16, y: proposedContentOffset.y)
+            return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
         }}

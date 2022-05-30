@@ -59,7 +59,6 @@ class AppDetailCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .gray
         let infoStackView = UIStackView(arrangedSubviews: [appIconImageView,
                                                           VerticalStackView(arrangedSubviews: [nameLabel,
                                                                                                UIStackView(arrangedSubviews: [priceButton, UIView()]),
