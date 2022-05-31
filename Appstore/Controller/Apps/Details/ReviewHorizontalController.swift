@@ -33,6 +33,12 @@ class ReviewHorizontalController: HorizontalSnappingController {
         cell.titleLabel.text = review?.title.label
         cell.authorLabel.text = review?.author.name.label
         cell.bodyLabel.text = review?.content.label
+        for (index, view) in cell.starsStackView.arrangedSubviews.enumerated() {
+            if let ratingString = review?.rating.label,
+               let ratingInt = Int(ratingString) {
+                view.alpha = index < ratingInt ? 1 : 0
+            }
+        }
         return cell
     }
     

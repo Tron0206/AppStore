@@ -22,25 +22,34 @@ class ReviewCell: UICollectionViewCell {
         return label
     }()
     
-    let starsLabel: UILabel = {
-        let label = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
-        return label
+    let starsStackView: UIStackView = {
+        var arrangedSubviews = [UIView]()
+        (0..<5).forEach { _ in
+            let imageView = UIImageView(image: UIImage(named: "star"))
+            imageView.constrainWidth(constant: 24)
+            imageView.constrainHeight(constant: 24)
+            arrangedSubviews.append(imageView)
+        }
+        arrangedSubviews.append(UIView())
+        
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        return stackView
     }()
     
     let bodyLabel: UILabel = {
-        let label = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 16), numberOfLines: 0)
+        let label = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 18), numberOfLines: 8)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         let stackView = VerticalStackView(arrangedSubviews: [UIStackView(arrangedSubviews: [titleLabel, UIView(), authorLabel]),
-                                                            starsLabel,
+                                                            starsStackView,
                                                             bodyLabel],
                                           spacing: 12)
         titleLabel.setContentCompressionResistancePriority(.init(rawValue: 0), for: .horizontal)
         addSubview(stackView)
-        stackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
+        stackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 20))
     }
     
     override func layoutSubviews() {
