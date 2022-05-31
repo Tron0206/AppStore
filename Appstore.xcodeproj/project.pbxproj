@@ -41,6 +41,7 @@
 		8F94CAEF2845001F00296DDE /* ReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAEE2845001F00296DDE /* ReviewRowCell.swift */; };
 		8F94CAF12845028700296DDE /* ReviewHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF02845028700296DDE /* ReviewHorizontalController.swift */; };
 		8F94CAF32845061D00296DDE /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF22845061D00296DDE /* ReviewCell.swift */; };
+		8F94CAF5284617C800296DDE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF4284617C800296DDE /* Reviews.swift */; };
 		CEC749CBF051F0E5600D37F8 /* Pods_Appstore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		8F94CAEE2845001F00296DDE /* ReviewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRowCell.swift; sourceTree = "<group>"; };
 		8F94CAF02845028700296DDE /* ReviewHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHorizontalController.swift; sourceTree = "<group>"; };
 		8F94CAF22845061D00296DDE /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		8F94CAF4284617C800296DDE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		D831B9C070CEBC9CEFAE6CF5 /* Pods-Appstore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.debug.xcconfig"; path = "Target Support Files/Pods-Appstore/Pods-Appstore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 				8F6D0895282AD9B300A7956C /* SearchResult.swift */,
 				8F8C61102832F35300A19B54 /* AppGroup.swift */,
 				8F8C611228340BE700A19B54 /* SocialApp.swift */,
+				8F94CAF4284617C800296DDE /* Reviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				8F6D0899282BB84800A7956C /* Service.swift in Sources */,
 				8F6D08A9282F03C200A7956C /* Extensions.swift in Sources */,
 				8F94CAED2844E49D00296DDE /* ScreenshotCell.swift in Sources */,
+				8F94CAF5284617C800296DDE /* Reviews.swift in Sources */,
 				8F6D088E282AB22C00A7956C /* SearchResultCell.swift in Sources */,
 				8F8C61112832F35300A19B54 /* AppGroup.swift in Sources */,
 				8F8C610F2832D27000A19B54 /* AppsHeaderCell.swift in Sources */,

@@ -14,25 +14,21 @@ class ReviewCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel(text: "Review title", font: .boldSystemFont(ofSize: 18))
-        label.backgroundColor = .yellow
         return label
     }()
     
     let authorLabel: UILabel = {
         let label = UILabel(text: "AUthor", font: .boldSystemFont(ofSize: 16))
-        label.backgroundColor = .red
         return label
     }()
     
     let starsLabel: UILabel = {
         let label = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
-        label.backgroundColor = .blue
         return label
     }()
     
     let bodyLabel: UILabel = {
         let label = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 16), numberOfLines: 0)
-        label.backgroundColor = .green
         return label
     }()
     
@@ -42,6 +38,7 @@ class ReviewCell: UICollectionViewCell {
                                                             starsLabel,
                                                             bodyLabel],
                                           spacing: 12)
+        titleLabel.setContentCompressionResistancePriority(.init(rawValue: 0), for: .horizontal)
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
     }
