@@ -11,6 +11,7 @@ import UIKit
 class TodayController: BaseListController {
     
     private var startingFrame: CGRect?
+    private var appFullscreenController: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,13 @@ class TodayController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let redView = UIView()
+        let appFulscreenController = AppFullscreenController()
+        let redView = appFulscreenController.view!
         redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(gesture:))))
-        redView.backgroundColor = .red
-        
         redView.layer.cornerRadius = 16
         view.addSubview(redView)
-        
+        addChild(appFulscreenController)
+        self.appFullscreenController = appFulscreenController
         //absolute coordinate of cell
         guard let cell = collectionView.cellForItem(at: indexPath),
               let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
@@ -56,7 +57,9 @@ class TodayController: BaseListController {
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut,
                        animations: {
-                                        redView.frame = self.view.frame
+            redView.frame = self.view.frame
+            //????????
+            self.tabBarController?.tabBar.isHidden = true
                                     },
                        completion: nil)
     }
@@ -69,9 +72,12 @@ class TodayController: BaseListController {
                        options: .curveEaseOut,
                        animations: {
             gesture.view?.frame = self.startingFrame ?? .zero
+            //????????
+            self.tabBarController?.tabBar.isHidden = false
                                     },
                        completion: { _ in
             gesture.view?.removeFromSuperview()
+            self.appFullscreenController.removeFromParent()
         })
     }
 }
