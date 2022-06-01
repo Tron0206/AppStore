@@ -10,6 +10,8 @@ import UIKit
 
 class TodayController: BaseListController {
     
+    private var startingFrame: CGRect?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -35,7 +37,42 @@ class TodayController: BaseListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Animate fullscreen somehow")
+        let redView = UIView()
+        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(gesture:))))
+        redView.backgroundColor = .red
+        
+        redView.layer.cornerRadius = 16
+        view.addSubview(redView)
+        
+        //absolute coordinate of cell
+        guard let cell = collectionView.cellForItem(at: indexPath),
+              let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
+        self.startingFrame = startingFrame
+        redView.frame = startingFrame
+        
+        UIView.animate(withDuration: 0.7,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: .curveEaseOut,
+                       animations: {
+                                        redView.frame = self.view.frame
+                                    },
+                       completion: nil)
+    }
+    
+    @objc func handleRemoveRedView(gesture: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.7,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: .curveEaseOut,
+                       animations: {
+            gesture.view?.frame = self.startingFrame ?? .zero
+                                    },
+                       completion: { _ in
+            gesture.view?.removeFromSuperview()
+        })
     }
 }
 
