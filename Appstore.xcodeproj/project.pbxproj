@@ -42,6 +42,8 @@
 		8F94CAF12845028700296DDE /* ReviewHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF02845028700296DDE /* ReviewHorizontalController.swift */; };
 		8F94CAF32845061D00296DDE /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF22845061D00296DDE /* ReviewCell.swift */; };
 		8F94CAF5284617C800296DDE /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF4284617C800296DDE /* Reviews.swift */; };
+		8F94CAF92846881B00296DDE /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAF82846881B00296DDE /* TodayController.swift */; };
+		8F94CAFB284763B000296DDE /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F94CAFA284763B000296DDE /* TodayCell.swift */; };
 		CEC749CBF051F0E5600D37F8 /* Pods_Appstore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CF8FF48FBEEDE33B4ACF9C /* Pods_Appstore.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,8 @@
 		8F94CAF02845028700296DDE /* ReviewHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHorizontalController.swift; sourceTree = "<group>"; };
 		8F94CAF22845061D00296DDE /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		8F94CAF4284617C800296DDE /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		8F94CAF82846881B00296DDE /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
+		8F94CAFA284763B000296DDE /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		D831B9C070CEBC9CEFAE6CF5 /* Pods-Appstore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Appstore.debug.xcconfig"; path = "Target Support Files/Pods-Appstore/Pods-Appstore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,10 +162,11 @@
 		8F6D0889282A85F400A7956C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8F6D089F282E5B5C00A7956C /* Search */,
-				8F6D089A282E592700A7956C /* Apps */,
 				8F6D0885282A6FC300A7956C /* BaseTabBarController.swift */,
 				8F6D089D282E5A7E00A7956C /* BaseListController.swift */,
+				8F94CAF62846857900296DDE /* Today */,
+				8F6D089F282E5B5C00A7956C /* Search */,
+				8F6D089A282E592700A7956C /* Apps */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 		8F6D088C282AB20800A7956C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F94CAF72846858400296DDE /* Today */,
 				8F6D08A3282E653900A7956C /* Search */,
 				8F6D08A0282E5EE400A7956C /* Apps */,
 			);
@@ -264,6 +270,22 @@
 				8F94CAF22845061D00296DDE /* ReviewCell.swift */,
 			);
 			path = AppDetailCell;
+			sourceTree = "<group>";
+		};
+		8F94CAF62846857900296DDE /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				8F94CAF82846881B00296DDE /* TodayController.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		8F94CAF72846858400296DDE /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				8F94CAFA284763B000296DDE /* TodayCell.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +412,7 @@
 				8F7321112840E6D9006A26BF /* AppDetailController.swift in Sources */,
 				8F6D0896282AD9B300A7956C /* SearchResult.swift in Sources */,
 				8F6D0886282A6FC300A7956C /* BaseTabBarController.swift in Sources */,
+				8F94CAFB284763B000296DDE /* TodayCell.swift in Sources */,
 				8F6D0876282A6EA600A7956C /* ViewController.swift in Sources */,
 				8F6D0872282A6EA600A7956C /* AppDelegate.swift in Sources */,
 				8F94CAF12845028700296DDE /* ReviewHorizontalController.swift in Sources */,
@@ -403,6 +426,7 @@
 				8F8C610B2832CD2D00A19B54 /* AppsPageHeader.swift in Sources */,
 				8F94CAE928435D0600296DDE /* PreviewCell.swift in Sources */,
 				8F6D0899282BB84800A7956C /* Service.swift in Sources */,
+				8F94CAF92846881B00296DDE /* TodayController.swift in Sources */,
 				8F6D08A9282F03C200A7956C /* Extensions.swift in Sources */,
 				8F94CAED2844E49D00296DDE /* ScreenshotCell.swift in Sources */,
 				8F94CAF5284617C800296DDE /* Reviews.swift in Sources */,

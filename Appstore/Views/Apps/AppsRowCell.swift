@@ -20,7 +20,7 @@ class AppsRowCell: UICollectionViewCell {
         }
     }
     
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let iv = UIImageView(cornerRadius: 16)
         iv.backgroundColor = .purple
         iv.constrainWidth(constant: 64)
@@ -28,11 +28,11 @@ class AppsRowCell: UICollectionViewCell {
         return iv
     }()
     
-    let nameLabel = UILabel(text: "App name", font: .systemFont(ofSize: 20))
+    private let nameLabel = UILabel(text: "App name", font: .systemFont(ofSize: 20))
     
-    let companyLabel = UILabel(text: "Company name", font: .systemFont(ofSize: 13))
+    private let companyLabel = UILabel(text: "Company name", font: .systemFont(ofSize: 13))
     
-    let getButton: UIButton = {
+    private let getButton: UIButton = {
         let button = UIButton(title: "GET")
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
         button.constrainWidth(constant: 80)
