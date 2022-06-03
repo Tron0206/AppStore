@@ -11,7 +11,12 @@ import UIKit
 class TodayController: BaseListController {
     
     private var startingFrame: CGRect?
-    private var appFullscreenController: UIViewController!
+    private var appFullscreenController: AppFullscreenController!
+    
+    private var topAnchor: NSLayoutConstraint?
+    private var leadingAnchor: NSLayoutConstraint?
+    private var widthAnchor: NSLayoutConstraint?
+    private var heightAnchor: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,50 +38,80 @@ class TodayController: BaseListController {
         return 32
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 32, left: 0, bottom: 32, right: 0)
-    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let appFulscreenController = AppFullscreenController()
-        let redView = appFulscreenController.view!
-        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView(gesture:))))
+        let appFullscreenController = AppFullscreenController()
+        appFullscreenController.dismissHandler = { [weak self] in
+            self?.handleRemoveRedView()
+        }
+        let redView = appFullscreenController.view!
+        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
         redView.layer.cornerRadius = 16
         view.addSubview(redView)
-        addChild(appFulscreenController)
-        self.appFullscreenController = appFulscreenController
+        addChild(appFullscreenController)
+        self.appFullscreenController = appFullscreenController
         //absolute coordinate of cell
         guard let cell = collectionView.cellForItem(at: indexPath),
+              //????
               let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         self.startingFrame = startingFrame
-        redView.frame = startingFrame
+        //
+        // auto layout constraint animations
+        // 4 anchors
+        redView.translatesAutoresizingMaskIntoConstraints = false
         
+        topAnchor = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingAnchor = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthAnchor = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightAnchor = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        
+        [topAnchor, leadingAnchor, widthAnchor, heightAnchor].forEach { $0?.isActive = true }
+        
+        //Update view
+        //Question about layoutSubviews(), layoutIfNeeded
+        self.view.layoutIfNeeded()
+        
+        //Open animation
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut,
                        animations: {
-            redView.frame = self.view.frame
-            //????????
+            self.topAnchor?.constant = 0
+            self.leadingAnchor?.constant = 0
+            self.widthAnchor?.constant = self.view.frame.width
+            self.heightAnchor?.constant = self.view.frame.height
+            self.view.layoutIfNeeded() //Starts animation
             self.tabBarController?.tabBar.isHidden = true
+
+            //????????
                                     },
-                       completion: nil)
+                       completion:nil)
     }
     
-    @objc func handleRemoveRedView(gesture: UITapGestureRecognizer) {
+    //Close animation
+    @objc func handleRemoveRedView() {
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut,
                        animations: {
-            gesture.view?.frame = self.startingFrame ?? .zero
+            self.appFullscreenController.tableView.contentOffset = .zero
+            guard let startingFrame = self.startingFrame else {  return }
+
+            self.topAnchor?.constant = startingFrame.origin.y
+            self.leadingAnchor?.constant = startingFrame.origin.x
+            self.widthAnchor?.constant = startingFrame.width
+            self.heightAnchor?.constant = startingFrame.height
+            
+            self.view.layoutIfNeeded()
             //????????
             self.tabBarController?.tabBar.isHidden = false
                                     },
                        completion: { _ in
-            gesture.view?.removeFromSuperview()
+            self.appFullscreenController.view.removeFromSuperview()
             self.appFullscreenController.removeFromParent()
         })
     }
@@ -86,5 +121,9 @@ class TodayController: BaseListController {
 extension TodayController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width - 64, height: 450)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 32, left: 0, bottom: 32, right: 0)
     }
 }

@@ -20,7 +20,8 @@ class ReviewHorizontalController: HorizontalSnappingController {
         super.viewDidLoad()
         collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: ReviewCell.identifier)
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
-        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 20, right: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
