@@ -80,10 +80,7 @@ class AppsPageController: BaseListController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsGroupCell.identifier, for: indexPath) as! AppsGroupCell
-        let appGroup = groups[indexPath.item]
-        cell.titleLabel.text = appGroup.feed.title
-        cell.horizontalController.appGroup = appGroup
-        cell.horizontalController.collectionView.reloadData()
+        cell.appGroup = groups[indexPath.item]
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
             let detailController = AppDetailController(appId: feedResult.id)
             detailController.navigationItem.title = feedResult.name

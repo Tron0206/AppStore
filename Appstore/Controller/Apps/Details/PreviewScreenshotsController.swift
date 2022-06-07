@@ -21,6 +21,7 @@ class PreviewScreenshotsController: HorizontalSnappingController {
         collectionView.register(ScreenshotCell.self, forCellWithReuseIdentifier: ScreenshotCell.identifier)
         collectionView.showsHorizontalScrollIndicator = true
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 35)
+        collectionView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -37,6 +38,6 @@ class PreviewScreenshotsController: HorizontalSnappingController {
 
 extension PreviewScreenshotsController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: 250, height: view.frame.height)
+        return .init(width: 250, height: view.bounds.height)
     }
 }

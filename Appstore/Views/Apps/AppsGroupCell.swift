@@ -13,6 +13,14 @@ class AppsGroupCell: UICollectionViewCell {
     
     static let identifier = "AppsGroupCell"
     
+    var appGroup: AppGroup! {
+        didSet {
+            titleLabel.text = appGroup.feed.title
+            horizontalController.appGroup = appGroup
+            horizontalController.collectionView.reloadData()
+        }
+    }
+    
     let titleLabel = UILabel(text: "App Sections", font: .boldSystemFont(ofSize: 30))
     
     let horizontalController = AppsHorizontalController()

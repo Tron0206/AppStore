@@ -88,17 +88,17 @@ extension AppDetailController: UICollectionViewDelegateFlowLayout {
         var height: CGFloat
         
         if indexPath.item == 0 {
-            let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
+            let dummyCell = AppDetailCell(frame: .init(x: 0, y: 0, width: view.bounds.width, height: 1000))
             dummyCell.app = app
             dummyCell.layoutIfNeeded()
-            let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+            let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.bounds.width, height: 1000))
             height = estimatedSize.height
         } else if indexPath.item == 1 {
             height = 500
         } else {
             height = 280
         }
-        return .init(width: view.frame.width, height: height)
+        return .init(width: view.bounds.width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

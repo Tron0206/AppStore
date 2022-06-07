@@ -12,6 +12,20 @@ class ReviewCell: UICollectionViewCell {
     
     static let identifier = "ReviewCell"
     
+    var review: Entry! {
+        didSet {
+            titleLabel.text = review?.title.label
+            authorLabel.text = review?.author.name.label
+            bodyLabel.text = review?.content.label
+            for (index, view) in starsStackView.arrangedSubviews.enumerated() {
+                if let ratingString = review?.rating.label,
+                   let ratingInt = Int(ratingString) {
+                    view.alpha = index < ratingInt ? 1 : 0
+                }
+            }
+        }
+    }
+    
     let titleLabel: UILabel = {
         let label = UILabel(text: "Review title", font: .boldSystemFont(ofSize: 18))
         return label

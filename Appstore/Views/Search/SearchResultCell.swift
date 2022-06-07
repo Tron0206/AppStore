@@ -16,9 +16,7 @@ class SearchResultCell: UICollectionViewCell {
             ratingsLabel.text = "Rating: \(String(format: "%.1f", appResult.averageUserRating ?? ""))"
             let iconUrl = URL(string: appResult.artworkUrl100)
             appIconImageView.sd_setImage(with: iconUrl, completed: nil)
-            
-            
-            
+
             screenshot1ImageView.sd_setImage(with: URL(string: appResult.screenshotUrls[0]), completed: nil)
             
             if appResult.screenshotUrls.count > 1 {
