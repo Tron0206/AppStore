@@ -17,6 +17,7 @@ class TodayMultipleAppCell: BaseTodayCell {
             categoryLabel.text = todayItem.category
             titleLabel.text = todayItem.title
             backgroundColor = todayItem.backgroundColor
+            multipleController.results = todayItem.apps
         }
     }
     
@@ -30,16 +31,15 @@ class TodayMultipleAppCell: BaseTodayCell {
         return label
     }()
     
-    let multiplyController = UIViewController()
+    let multipleController = TodayMultipleAppsController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 16
         clipsToBounds = true
-        multiplyController.view.backgroundColor = .red
         let stackView = VerticalStackView(arrangedSubviews: [categoryLabel,
                                                              titleLabel,
-                                                             multiplyController.view],
+                                                             multipleController.view],
                                           spacing: 12)
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 24, left: 24, bottom: 24, right: 24))

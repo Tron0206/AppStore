@@ -16,5 +16,6 @@ struct TodayItem {
     var description: String
     var backgroundColor: UIColor
     let cellIdentifier: String
+    let apps: [FeedResult]
 }
 

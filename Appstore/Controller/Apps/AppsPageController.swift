@@ -36,20 +36,20 @@ class AppsPageController: BaseListController {
         
         dispatchGroup.enter()
         Service.shared.fetchWithUrl(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/25/apps.json") { appGroup, error in
-            dispatchGroup.leave()
             guard let appGroup = appGroup else {
                 return
             }
             self.groups.append(appGroup)
+            dispatchGroup.leave()
         }
         
         dispatchGroup.enter()
         Service.shared.fetchWithUrl(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/25/apps.json") { appGroup, error in
-            dispatchGroup.leave()
             guard let appGroup = appGroup else {
                 return
             }
             self.groups.append(appGroup)
+            dispatchGroup.leave()
         }
         dispatchGroup.enter()
         Service.shared.fetchSocialApps { socialApps, error in
