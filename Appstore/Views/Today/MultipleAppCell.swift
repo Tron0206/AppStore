@@ -42,7 +42,7 @@ class MultipleAppCell: UICollectionViewCell {
         return button
     }()
     
-    let separatorView: UIView = {
+    private let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.3, alpha: 0.4)
         return view

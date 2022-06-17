@@ -8,7 +8,7 @@
 import UIKit
 
 
-class TodayMultipleAppCell: BaseTodayCell {
+class TodayMultipleAppsCell: BaseTodayCell {
     
     static let identifier = "TodayMultipleAppCell"
     
@@ -17,7 +17,8 @@ class TodayMultipleAppCell: BaseTodayCell {
             categoryLabel.text = todayItem.category
             titleLabel.text = todayItem.title
             backgroundColor = todayItem.backgroundColor
-            multipleController.results = todayItem.apps
+            multipleController.apps = todayItem.apps
+            multipleController.collectionView.reloadData()
         }
     }
     
@@ -31,7 +32,7 @@ class TodayMultipleAppCell: BaseTodayCell {
         return label
     }()
     
-    let multipleController = TodayMultipleAppsController()
+    let multipleController = TodayMultipleAppsController(mode: .small)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

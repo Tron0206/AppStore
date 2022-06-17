@@ -23,13 +23,14 @@ final class TodayController: BaseListController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Refactoring!
         view.addSubview(activityIndicatorView)
         activityIndicatorView.centerInSuperview()
         fetchData()
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = .systemGray5
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayCell.identifier)
-        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayMultipleAppCell.identifier)
+        collectionView.register(TodayMultipleAppsCell.self, forCellWithReuseIdentifier: TodayMultipleAppsCell.identifier)
     }
     
     private func fetchData() {
@@ -39,7 +40,7 @@ final class TodayController: BaseListController {
         var topPaidApps: AppGroup?
         
         dispatchGroup.enter()
-        Service.shared.fetchGenericJSONData(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/25/apps.json") { (results: AppGroup?, error) in
+        Service.shared.fetchGenericJSONData(urlString: NetworkURL.topFree) { (results: AppGroup?, error) in
             if let error = error {
                 print("Error - \(error)")
                 return
@@ -50,7 +51,7 @@ final class TodayController: BaseListController {
         }
         
         dispatchGroup.enter()
-        Service.shared.fetchGenericJSONData(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/25/apps.json") { (results: AppGroup?, error) in
+        Service.shared.fetchGenericJSONData(urlString: NetworkURL.topPaid) { (results: AppGroup?, error) in
             if let error = error {
                 print("Error - \(error)")
                 return
@@ -75,7 +76,7 @@ final class TodayController: BaseListController {
                           imageName: "",
                           description: "",
                           backgroundColor: .white,
-                          cellIdentifier: TodayMultipleAppCell.identifier,
+                          cellIdentifier: TodayMultipleAppsCell.identifier,
                           apps: topFreeApps?.feed.results ?? []),
                 TodayItem(category: "HOLIDAYS",
                           title: "Travel on a Budget",
@@ -89,7 +90,7 @@ final class TodayController: BaseListController {
                           imageName: "",
                           description: "",
                           backgroundColor: .white,
-                          cellIdentifier: TodayMultipleAppCell.identifier,
+                          cellIdentifier: TodayMultipleAppsCell.identifier,
                           apps: topPaidApps?.feed.results ?? [])
             ]
             
@@ -106,7 +107,20 @@ final class TodayController: BaseListController {
         let item = items[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.cellIdentifier, for: indexPath) as! BaseTodayCell
         cell.todayItem = item
+        (cell as? TodayMultipleAppsCell)?.multipleController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMultipleAppsTap(gesture:))))
         return cell
+    }
+    
+    @objc fileprivate func handleMultipleAppsTap(gesture: UIGestureRecognizer) {
+        let collectionView = gesture.view
+        var superView = collectionView?.superview
+        while superView != nil {
+            if let cell = superView as? TodayMultipleAppsCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                openFullscreenMultipleAppsController(for: indexPath)
+            }
+            superView = superView?.superview
+        }
     }
     
     
@@ -116,10 +130,23 @@ final class TodayController: BaseListController {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if items[indexPath.item].cellIdentifier == TodayMultipleAppsCell.identifier {
+            openFullscreenMultipleAppsController(for: indexPath)
+            return
+        }
+        
         let appFullscreenController = AppFullscreenController()
         appFullscreenController.todayItem = items[indexPath.row]
         appFullscreenController.modalTransitionStyle = .flipHorizontal
         present(appFullscreenController, animated: true)
+    }
+    
+    private func openFullscreenMultipleAppsController(for indexPath: IndexPath) {
+        let fullscreenController = TodayMultipleAppsController(mode: .fullscreen)
+        fullscreenController.apps = items[indexPath.item].apps
+        let navigationController = BackEnabledNavigationController(rootViewController: fullscreenController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
 }
 

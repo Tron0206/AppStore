@@ -19,7 +19,7 @@ class PreviewScreenshotsController: HorizontalSnappingController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(ScreenshotCell.self, forCellWithReuseIdentifier: ScreenshotCell.identifier)
-        collectionView.showsHorizontalScrollIndicator = true
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 35)
         collectionView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
     }

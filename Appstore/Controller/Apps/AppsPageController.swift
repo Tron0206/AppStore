@@ -35,7 +35,7 @@ class AppsPageController: BaseListController {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
-        Service.shared.fetchWithUrl(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/25/apps.json") { appGroup, error in
+        Service.shared.fetchWithUrl(urlString: NetworkURL.topFree) { appGroup, error in
             guard let appGroup = appGroup else {
                 return
             }
@@ -44,7 +44,7 @@ class AppsPageController: BaseListController {
         }
         
         dispatchGroup.enter()
-        Service.shared.fetchWithUrl(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/25/apps.json") { appGroup, error in
+        Service.shared.fetchWithUrl(urlString: NetworkURL.topPaid) { appGroup, error in
             guard let appGroup = appGroup else {
                 return
             }

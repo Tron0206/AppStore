@@ -47,4 +47,9 @@ class Service {
 
 }
 
+enum NetworkURL {
+    static let topPaid = "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/25/apps.json"
+    static let topFree = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/25/apps.json"
+}
+
 
